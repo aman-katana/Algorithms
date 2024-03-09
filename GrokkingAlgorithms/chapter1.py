@@ -23,4 +23,30 @@
 # ans = binary_search(1, lst=my_lst)
 # print('ans', ans)
 
+# 2 Сортировка выбором | Selection Sort ================================================================================
+# my_lst = [16, 25, 32, 47, 57, 60, 65, 71, 80, 94]
+#
+#
+# def find_smallest(lst) -> int | None:
+#     '''Returns index of smallest obj if exists'''
+#     if len(lst) < 1:
+#         return None
+#     smallest = lst[0]
+#     smallest_index = 0
+#     for i in range(len(lst)):
+#         if lst[i] < smallest:
+#             smallest = lst[i]
+#             smallest_index = i
+#     return smallest_index
+#
+#
+# def selectionSort(lst: list):
+#     new_lst = []
+#     for i in range(len(lst)):
+#         smallest_index = find_smallest(lst)
+#         new_lst.append(lst.pop(smallest_index))
+#     return new_lst
+#
+#
+# print(selectionSort(my_lst))
 
