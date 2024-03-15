@@ -50,3 +50,14 @@
 #
 # print(selectionSort(my_lst))
 
+
+# 3 Рекурсия | Recursion
+def factorial(num):
+    if num == 1:
+        return num
+    else:
+        return num * factorial(num - 1)
+
+
+f5 = factorial(5)
+print(f5)
