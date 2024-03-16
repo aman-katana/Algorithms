@@ -37,17 +37,28 @@
 #             return True
 
 # 977. Squares of a Sorted Array
-class Solution(object):
-    def sortedSquares(self, nums, do=True):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
-        nums = [i ** 2 for i in nums] if do else nums
-        if len(nums) < 2:
-            return nums
-        else:
-            mid = nums.pop(len(nums) // 2)
-            left = [i for i in nums if i <= mid]
-            right = [i for i in nums if i > mid]
-            return self.sortedSquares(left, do=False) + [mid] + self.sortedSquares(right, do=False)
+# class Solution(object):
+#     def sortedSquares(self, nums, do=True):
+#         """
+#         :type nums: List[int]
+#         :rtype: List[int]
+#         """
+#         nums = [i ** 2 for i in nums] if do else nums
+#         if len(nums) < 2:
+#             return nums
+#         else:
+#             mid = nums.pop(len(nums) // 2)
+#             left = [i for i in nums if i <= mid]
+#             right = [i for i in nums if i > mid]
+#             return self.sortedSquares(left, do=False) + [mid] + self.sortedSquares(right, do=False)
+
+# 58. Length of Last Word
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        s = s.strip(' ')
+        end = len(s) - 1
+        for i in range(end, -1, -1):
+            if s[i] == ' ':
+                 return end - i
+
+        return end + 1
