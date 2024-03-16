@@ -20,14 +20,9 @@
 #         return -1
 
 # 551. Student Attendance Record I
-class Solution(object):
-    def checkRecord(self, s: str):
-        """
-        :type s: str
-        :rtype: bool
-        """
-        absent = 0
-        late = 0
+class Solution:
+    def checkRecord(self, s: str) -> bool:
+        absent = late = 0
         for i in s:
             if i == 'A':
                 absent += 1
