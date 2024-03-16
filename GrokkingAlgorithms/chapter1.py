@@ -51,13 +51,58 @@
 # print(selectionSort(my_lst))
 
 
-# 3 Рекурсия | Recursion
-def factorial(num):
-    if num == 1:
-        return num
-    else:
-        return num * factorial(num - 1)
+# 3 Рекурсия | Recursion ===============================================================================================
+# def factorial(num):
+#     if num == 1:
+#         return num
+#     else:
+#         return num * factorial(num - 1)
+#
+#
+# f5 = factorial(5)
+# print(f5)
 
 
-f5 = factorial(5)
-print(f5)
+# 4 Разделяй и властвуй ================================================================================================
+
+# def find_min_square(width, height):
+#     '''Функция определяет наименьший размер квадрата'''
+#     if height > width:
+#         width, height = height, width
+#
+#     if width % height == 0:
+#         return height
+#     else:
+#         width = width - height * (width // height)
+#         return find_min_square(width, height)
+#
+#
+# ans = find_min_square(1680, 640)
+# print(ans)
+
+# def find_lst_summ(lst: list):
+#     '''Функция находит сумму списка '''
+#     if len(lst) == 0:
+#         return 0
+#     else:
+#         return lst[0] + find_lst_summ(lst[1:])
+#
+#
+# my_lst = [1, 2, 3, 4, 5]
+# ans = find_lst_summ(my_lst)
+# print(ans)
+
+# 4.1 Быстрая сортировка | Quick Sort =================================================================================
+# def quicksort(lst: list):
+#     if len(lst) < 2:
+#         return lst
+#     else:
+#         pivot = lst.pop(len(lst) // 2)
+#         less = [i for i in lst if i <= pivot]
+#         grater = [i for i in lst if i > pivot]
+#         return quicksort(less) + [pivot] + quicksort(grater)
+#
+#
+# my_lst = [17, 36, 24, 83, 42, 27, 55, 76, 99, 32, 81, 77, 73, 75, 69]
+# ans_lst = quicksort(my_lst)
+# print(ans_lst)
