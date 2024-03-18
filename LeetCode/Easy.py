@@ -95,3 +95,10 @@ class Solution:
         digits = int(''.join(map(str, digits))) + 1
 
         return list(map(int, str(digits)))
+
+
+# 169. Majority Element
+class Solution:
+    def majorityElement(self, nums: list[int]) -> int:
+        nums.sort()
+        return nums[len(nums) // 2]
