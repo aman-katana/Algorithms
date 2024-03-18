@@ -77,3 +77,21 @@ class Solution:
             if haystack[i: i + len(needle)] == needle:
                 return i
         return -1
+
+
+# 66. Plus One
+class Solution:
+    def plusOne(self, digits: list[int]) -> list[int]:
+        if digits[-1] != 9:
+
+            digits[-1] += 1
+            return digits
+        elif len(digits) > 1 and digits[-2] != 9:
+
+            digits[-2] += 1
+            digits[-1] = 0
+            return digits
+
+        digits = int(''.join(map(str, digits))) + 1
+
+        return list(map(int, str(digits)))
