@@ -13,3 +13,17 @@ class Solution:
             return 0
 
         return x
+
+
+# 347. Top K Frequent Elements
+class Solution:
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+        data = {}
+        for i in nums:
+            if i in data:
+                data[i] += 1
+            else:
+                data[i] = 1
+
+        items = sorted(data.items(), key=lambda x: x[1], reverse=True)
+        return [items[i][0] for i in range(k)]
