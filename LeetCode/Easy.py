@@ -102,3 +102,13 @@ class Solution:
     def majorityElement(self, nums: list[int]) -> int:
         nums.sort()
         return nums[len(nums) // 2]
+
+
+# 268. Missing Number
+class Solution:
+    def missingNumber(self, nums: list[int]) -> int:
+        nums.sort()
+        for i in range(len(nums)):
+            if nums[i] != i:
+                return i
+        return nums[-1] + 1
