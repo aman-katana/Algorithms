@@ -125,3 +125,12 @@ class Solution:
                 digits[i] = 1
 
         return list(digits.keys())[0]
+
+
+# 344. Reverse String
+class Solution:
+    def reverseString(self, s: list[str]) -> None:
+        """
+        Do not return anything, modify s in-place instead.
+        """
+        s[:] = s[::-1]
