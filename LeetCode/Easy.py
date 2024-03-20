@@ -112,3 +112,16 @@ class Solution:
             if nums[i] != i:
                 return i
         return nums[-1] + 1
+
+
+# 136. Single Number
+class Solution:
+    def singleNumber(self, nums: list[int]) -> int:
+        digits = {}
+        for i in nums:
+            if digits.get(i):
+                del digits[i]
+            else:
+                digits[i] = 1
+
+        return list(digits.keys())[0]
