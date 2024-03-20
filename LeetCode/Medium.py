@@ -27,3 +27,18 @@ class Solution:
 
         items = sorted(data.items(), key=lambda x: x[1], reverse=True)
         return [items[i][0] for i in range(k)]
+
+
+# 137. Single Number II
+class Solution:
+    def singleNumber(self, nums: list[int]) -> int:
+        digits = {}
+        for i in nums:
+            if i in digits and digits[i] == 2:
+                digits.pop(i)
+            elif i in digits:
+                digits[i] += 1
+            else:
+                digits[i] = 1
+
+        return list(digits)[0]
