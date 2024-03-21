@@ -134,3 +134,16 @@ class Solution:
         Do not return anything, modify s in-place instead.
         """
         s[:] = s[::-1]
+
+
+# 242. Valid Anagram
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+
+        letters = "abcdefghijklmnopqrstuvwxyz"
+        for l in letters:
+            if s.count(l) != t.count(l):
+                return False
+        return True
