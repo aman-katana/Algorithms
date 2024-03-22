@@ -147,3 +147,9 @@ class Solution:
             if s.count(l) != t.count(l):
                 return False
         return True
+
+
+# 217. Contains Duplicate
+class Solution:
+    def containsDuplicate(self, nums: list[int]) -> bool:
+        return len(set(nums)) == len(nums)
