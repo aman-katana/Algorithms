@@ -42,3 +42,22 @@ class Solution:
                 digits[i] = 1
 
         return list(digits)[0]
+
+
+# 75. Sort Colors
+class Solution:
+    def sortColors(self, nums: list) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        first = []
+        second = []
+        for i in nums:
+            if i == 0:
+                first.append(i)
+            elif i == 1:
+                second.insert(0, i)
+            else:
+                second.append(i)
+
+        nums[:] = first + second
