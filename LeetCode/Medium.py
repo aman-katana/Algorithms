@@ -61,3 +61,28 @@ class Solution:
                 second.append(i)
 
         nums[:] = first + second
+
+
+# 81. Search in Rotated Sorted Array II
+class Solution:
+    def search(self, nums: list[int], target: int) -> bool:
+        max_index = -1
+        last = nums[0]
+        for i in range(len(nums)):
+            if nums[i] < last:
+                max_index = i - 1
+                break
+            last = nums[i]
+        nums = nums[max_index + 1:] + nums[0: max_index + 1]
+        start = 0
+        end = len(nums)
+        while start < end:
+            mid = (start + end) // 2
+            if nums[mid] == target:
+                return True
+            elif nums[mid] > target:
+                end = mid
+            elif nums[mid] < target:
+                start = mid + 1
+
+        return False
