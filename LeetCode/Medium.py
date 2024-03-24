@@ -86,3 +86,35 @@ class Solution:
                 start = mid + 1
 
         return False
+
+
+# 34. Find First and Last Position of Element in Sorted Array
+class Solution:
+    def searchRange(self, nums: list[int], target: int) -> list[int]:
+        start = 0
+        end = len(nums)
+        while start < end:
+            mid = (start + end) // 2
+
+            if nums[mid] == target:
+                # Если target найден идём в лево и право циклом for
+                # и проверяем равняются ли значения target и когда перестают быть равным обрываем цикл
+                first = second = -1
+                for i in range(mid, -1, -1):
+                    if nums[i] != target:
+                        break
+                    first = i
+                for i in range(mid, len(nums)):
+                    if nums[i] != target:
+                        break
+                    second = i
+                return [first, second]
+
+            elif target < nums[mid]:
+                end = mid
+            elif target > nums[mid]:
+                start = mid + 1
+
+        return [-1, -1]
+
+
