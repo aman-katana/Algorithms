@@ -153,3 +153,15 @@ class Solution:
 class Solution:
     def containsDuplicate(self, nums: list[int]) -> bool:
         return len(set(nums)) == len(nums)
+
+
+# 258. Add Digits
+class Solution:
+
+    def addDigits(self, num: int) -> int:
+        num = str(num)
+
+        while len(num) > 1:
+            num = str(sum(map(int, num)))
+
+        return int(num)
