@@ -165,3 +165,15 @@ class Solution:
             num = str(sum(map(int, num)))
 
         return int(num)
+
+
+# 500. Keyboard Row
+class Solution:
+    def findWords(self, words: list[str]) -> list[str]:
+        f, s, th, = set("qwertyuiop"), set("asdfghjkl"), set("zxcvbnm")
+        ans = []
+        for word in words:
+            w = set(word.lower())
+            if w <= f or w <= s or w <= th:
+                ans.append(word)
+        return ans
