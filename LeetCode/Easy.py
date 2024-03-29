@@ -177,3 +177,12 @@ class Solution:
             if w <= f or w <= s or w <= th:
                 ans.append(word)
         return ans
+
+
+# 283. Move Zeroes
+class Solution:
+    def moveZeroes(self, nums: list[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        nums[:] = [i for i in nums if i != 0] + [i for i in nums if i == 0]
