@@ -186,3 +186,20 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         nums[:] = [i for i in nums if i != 0] + [i for i in nums if i == 0]
+
+
+# 387. First Unique Character in a String
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        chars_dict = {}
+        for char in s:
+            if char in chars_dict:
+                chars_dict[char] += 1
+            else:
+                chars_dict[char] = 1
+
+        for i in range(len(s)):
+            if chars_dict.get(s[i]) == 1:
+                return i
+
+        return -1
