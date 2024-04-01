@@ -122,3 +122,14 @@ class Solution:
 class Solution:
     def reverseWords(self, s: str) -> str:
         return ' '.join(s.split()[::-1])
+
+
+# 287. Find the Duplicate Number
+class Solution:
+    def findDuplicate(self, nums: list[int]) -> int:
+        digits = {}
+        for n in nums:
+            if digits.get(n):
+                return n
+
+            digits[n] = 1
