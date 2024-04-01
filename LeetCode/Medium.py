@@ -131,5 +131,4 @@ class Solution:
         for n in nums:
             if digits.get(n):
                 return n
-
             digits[n] = 1
