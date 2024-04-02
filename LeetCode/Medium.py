@@ -132,3 +132,15 @@ class Solution:
             if digits.get(n):
                 return n
             digits[n] = 1
+
+
+# 189. Rotate Array
+class Solution:
+    def rotate(self, nums: list[int], k: int) -> None:
+        if k == 0:
+            return
+        elif len(nums) > k:
+            nums[:] = nums[-k:] + nums[:(len(nums) - k)]
+        else:
+            for i in range(k):
+                nums.insert(0, nums.pop(-1))
