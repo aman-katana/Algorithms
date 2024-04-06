@@ -144,3 +144,13 @@ class Solution:
         else:
             for i in range(k):
                 nums.insert(0, nums.pop(-1))
+
+# 378. Kth Smallest Element in a Sorted Matrix
+class Solution:
+    def kthSmallest(self, matrix: list[list[int]], k: int) -> int:
+        new_matrix = []
+        for item in matrix:
+            new_matrix.extend(item)
+
+        new_matrix.sort()
+        return new_matrix[k - 1]
