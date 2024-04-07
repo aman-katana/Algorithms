@@ -220,3 +220,10 @@ class Solution:
                 max_prof = prices[i] - prices[min_index]
 
         return max_prof if max_prof > 0 else 0
+
+
+# 557. Reverse Words in a String III
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        s = s.split()
+        return ' '.join([item[::-1] for item in s])
