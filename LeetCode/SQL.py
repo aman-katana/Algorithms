@@ -13,3 +13,8 @@
 # )
 # SELECT IF(COUNT(salary)=1, salary, null) AS SecondHighestSalary
 # FROM CTE_Salaries
+
+# 178. Rank Scores
+# SELECT score,
+# DENSE_RANK() OVER(ORDER BY score DESC) AS 'rank'
+# FROM Scores
