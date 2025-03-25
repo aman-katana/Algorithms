@@ -43,3 +43,17 @@
 #     SELECT DISTINCT customerId
 #     FROM  Orders
 # )
+
+
+# 185. Department Top Three Salaries
+# WITH CTE_Rank(Department, Employee, Salary, rn)  AS(
+#     SELECT
+#         D.name, E.name, E.salary,
+#         DENSE_RANK() OVER(PARTITION BY E.departmentId ORDER BY E.salary DESC) AS rn
+#     FROM Employee E
+#     JOIN Department D
+#         ON E.departmentId = D.id
+#
+# )SELECT Department, Employee, Salary
+# FROM CTE_Rank
+# WHERE rn < 4
