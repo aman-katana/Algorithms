@@ -72,3 +72,18 @@
 # INNER JOIN Weather AS W2
 #     ON DATEDIFF(W1.recordDate, W2.recordDate) = 1
 # WHERE W1.temperature > W2.temperature
+
+
+# 184. Department Highest Salary
+# WITH CTE_ranked(Department, Employee, Salary, rn) AS (
+#     SELECT
+#     D.name, E.name, E.salary,
+#     DENSE_RANK() OVER(PARTITION BY E.departmentId ORDER BY salary DESC) AS rn
+#
+# FROM Employee E
+# JOIN Department D
+#     ON E.departmentId = D.id
+#
+# )SELECT Department, Employee, Salary
+# FROM CTE_ranked
+# WHERE rn = 1
