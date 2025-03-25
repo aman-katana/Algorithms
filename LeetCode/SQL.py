@@ -14,10 +14,12 @@
 # SELECT IF(COUNT(salary)=1, salary, null) AS SecondHighestSalary
 # FROM CTE_Salaries
 
+
 # 178. Rank Scores
 # SELECT score,
 # DENSE_RANK() OVER(ORDER BY score DESC) AS 'rank'
 # FROM Scores
+
 
 # 181. Employees Earning More Than Their Managers
 # SELECT emp1.name as 'Employee'
@@ -26,8 +28,18 @@
 #     ON emp1.managerId = emp2.id
 # WHERE emp1.salary > emp2.salary;
 
+
 # 182. Duplicate Emails
 # SELECT email AS Email
 # FROM Person
 # GROUP BY email
 # HAVING COUNT(Email) > 1
+
+
+# 183. Customers Who Never Order
+# SELECT Customers.name AS Customers
+# FROM Customers
+# WHERE Customers.id NOT IN (
+#     SELECT DISTINCT customerId
+#     FROM  Orders
+# )
