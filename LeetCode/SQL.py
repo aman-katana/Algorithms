@@ -64,3 +64,11 @@
 # FROM Person AS P1
 # JOIN Person AS P2
 # WHERE P1.email = P2.email AND P1.id > P2.id
+
+
+# 197. Rising Temperature
+# SELECT W1.id
+# FROM Weather AS W1
+# INNER JOIN Weather AS W2
+#     ON DATEDIFF(W1.recordDate, W2.recordDate) = 1
+# WHERE W1.temperature > W2.temperature
