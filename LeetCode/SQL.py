@@ -25,3 +25,9 @@
 # LEFT JOIN Employee AS emp2
 #     ON emp1.managerId = emp2.id
 # WHERE emp1.salary > emp2.salary;
+
+# 182. Duplicate Emails
+# SELECT email AS Email
+# FROM Person
+# GROUP BY email
+# HAVING COUNT(Email) > 1
