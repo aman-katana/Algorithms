@@ -18,3 +18,10 @@
 # SELECT score,
 # DENSE_RANK() OVER(ORDER BY score DESC) AS 'rank'
 # FROM Scores
+
+# 181. Employees Earning More Than Their Managers
+# SELECT emp1.name as 'Employee'
+# FROM Employee AS emp1
+# LEFT JOIN Employee AS emp2
+#     ON emp1.managerId = emp2.id
+# WHERE emp1.salary > emp2.salary;
