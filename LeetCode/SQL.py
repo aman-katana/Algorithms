@@ -93,3 +93,11 @@
 # SELECT player_id, MIN(event_date) AS first_login
 # FROM Activity
 # GROUP BY player_id
+
+
+# 577. Employee Bonus
+# SELECT name, bonus
+# FROM Employee E
+# LEFT JOIN Bonus B
+#     ON E.empId = B.empId
+# WHERE B.bonus < 1000 OR B.bonus IS null
