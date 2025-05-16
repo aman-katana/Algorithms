@@ -227,3 +227,29 @@ class Solution:
     def reverseWords(self, s: str) -> str:
         s = s.split()
         return ' '.join([item[::-1] for item in s])
+
+
+# 14. Longest Common Prefix
+class Solution:
+    def longestCommonPrefix(self, strs: list[str]) -> str:
+        min_len = len(strs[0])
+
+        for i in range(len(strs)):
+            min_len = min(min_len, len(strs[i]))
+
+        ans = ""
+        for len_s in range(1, min_len + 1):
+            prefix = strs[0][:len_s]
+            ok = True
+
+            for i in range(len(strs)):
+                if strs[i][:len_s] != prefix:
+                    ok = False
+                    break
+
+            if ok:
+                ans = prefix
+            else:
+                break
+
+        return ans
