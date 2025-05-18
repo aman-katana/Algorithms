@@ -253,3 +253,32 @@ class Solution:
                 break
 
         return ans
+
+
+# 20. Valid Parentheses
+class Solution:
+    def isValid(self, s: str) -> bool:
+        q = []
+        cost = {
+            '(': 1,
+            '[': 2,
+            '{': 3,
+
+            '}': -3,
+            ']': -2,
+            ')': -1
+        }
+        for i in range(len(s)):
+            x = cost[s[i]]
+
+            if x > 0:
+                q.append(x)
+            else:
+                if len(q) == 0:
+                    return False
+
+                y = q.pop(-1)
+                if x + y != 0:
+                    return False
+
+        return len(q) == 0
