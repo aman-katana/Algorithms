@@ -311,3 +311,14 @@ class Solution:
             prefix.append(new)
 
         return prefix
+
+
+# 1732. Find the Highest Altitude
+class Solution:
+    def largestAltitude(self, gain: list[int]) -> int:
+        n = len(gain)
+        lst = [0] * (n + 1)
+        for i in range(n):
+            lst[i + 1] = lst[i] + gain[i]
+
+        return max(lst)
