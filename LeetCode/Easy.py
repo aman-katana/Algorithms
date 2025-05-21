@@ -299,3 +299,15 @@ class Solution:
                 end = mid - 1
 
         return start
+
+
+# 1480. Running Sum of 1d Array
+class Solution:
+    def runningSum(self, nums: list[int]) -> list[int]:
+        prefix = []
+        prefix.append(nums[0])
+        for i in range(1, len(nums)):
+            new = prefix[i - 1] + nums[i]
+            prefix.append(new)
+
+        return prefix
