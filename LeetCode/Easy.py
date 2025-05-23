@@ -342,3 +342,24 @@ class Solution:
                 ans += 1
 
         return ans
+
+
+# 1893. Check if All the Integers in a Range Are Covered
+class Solution:
+    def isCovered(self, ranges: list[list[int]], left: int, right: int) -> bool:
+        length = len(ranges)
+        exist = [0] * 52
+
+        for i in range(length):
+            l, r = ranges[i]
+            exist[l] += 1
+            exist[r + 1] -= 1
+
+        for i in range(1, len(exist)):
+            exist[i] = exist[i] + exist[i - 1]
+
+        for i in range(left, right + 1):
+            if exist[i] == 0:
+                return False
+
+        return True
