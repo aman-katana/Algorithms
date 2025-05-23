@@ -322,3 +322,23 @@ class Solution:
             lst[i + 1] = lst[i] + gain[i]
 
         return max(lst)
+
+
+# 2848. Points That Intersect With Cars
+class Solution:
+    def numberOfPoints(self, nums: list[list[int]]) -> int:
+        park = [0] * 102
+
+        for i, j in nums:
+            park[i] += 1
+            park[j + 1] -= 1
+
+        for i in range(1, len(park)):
+            park[i] = park[i] + park[i - 1]
+
+        ans = 0
+        for i in park:
+            if i != 0:
+                ans += 1
+
+        return ans
