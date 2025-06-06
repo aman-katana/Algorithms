@@ -436,3 +436,15 @@ class Solution:
             i += 1
 
         return ans
+
+
+# 125. Valid Palindrome
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s = s.lower()
+        s_lst = []
+        for i in s:
+            if i in "qwertyuiopasdfghjklzxcvbnm0987654321":
+                s_lst.append(i)
+
+        return s_lst == s_lst[::-1]
