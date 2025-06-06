@@ -369,19 +369,43 @@ class Solution:
 class Solution:
     def leftRightDifference(self, nums: list[int]) -> list[int]:
         len_n = len(nums)
-        left_sum = [0]*len_n
-        right_sum = [0]*len_n
+        left_sum = [0] * len_n
+        right_sum = [0] * len_n
 
         left_sum[0] = 0
         for i in range(1, len_n):
-            left_sum[i] = left_sum[i-1] + nums[i-1]
+            left_sum[i] = left_sum[i - 1] + nums[i - 1]
 
-        right_sum[len_n-1] = 0
-        for i in range(len_n-1, 0, -1):
-            right_sum[i-1] = nums[i] + right_sum[i]
+        right_sum[len_n - 1] = 0
+        for i in range(len_n - 1, 0, -1):
+            right_sum[i - 1] = nums[i] + right_sum[i]
 
-        ans = [0]*len_n
+        ans = [0] * len_n
         for i in range(len_n):
             ans[i] = abs(left_sum[i] - right_sum[i])
 
         return ans
+
+
+# 1991. Find the Middle Index in Array
+class Solution:
+    def findMiddleIndex(self, nums: list[int]) -> int:
+        leng = len(nums)
+        prefix = [0] * leng
+
+        prefix[0] = nums[0]
+        for i in range(1, leng):
+            prefix[i] = prefix[i - 1] + nums[i]
+
+        for i in range(leng):
+            left = 0
+            right = 0
+            if i != 0:
+                left = prefix[i - 1]
+            if i != leng - 1:
+                right = prefix[leng - 1] - prefix[i]
+
+            if left == right:
+                return i
+
+        return -1
