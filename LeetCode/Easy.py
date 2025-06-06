@@ -363,3 +363,25 @@ class Solution:
                 return False
 
         return True
+
+
+# 2574. Left and Right Sum Differences
+class Solution:
+    def leftRightDifference(self, nums: list[int]) -> list[int]:
+        len_n = len(nums)
+        left_sum = [0]*len_n
+        right_sum = [0]*len_n
+
+        left_sum[0] = 0
+        for i in range(1, len_n):
+            left_sum[i] = left_sum[i-1] + nums[i-1]
+
+        right_sum[len_n-1] = 0
+        for i in range(len_n-1, 0, -1):
+            right_sum[i-1] = nums[i] + right_sum[i]
+
+        ans = [0]*len_n
+        for i in range(len_n):
+            ans[i] = abs(left_sum[i] - right_sum[i])
+
+        return ans
