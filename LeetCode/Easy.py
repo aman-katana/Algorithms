@@ -409,3 +409,30 @@ class Solution:
                 return i
 
         return -1
+
+
+# 228. Summary Ranges
+class Solution:
+    def summaryRanges(self, nums: list[int]) -> list[str]:
+        if len(nums) <= 1:
+            return [str(i) for i in nums]
+
+        leng = len(nums)
+        ans = []
+
+        i = 0
+        while i < leng:
+            l = r = nums[i]
+            for j in range(i + 1, leng):
+                if r + 1 != nums[j]:
+                    break
+                r = nums[j]
+                i = j
+
+            if l == r:
+                ans.append(f"{l}")
+            else:
+                ans.append(f"{l}->{r}")
+            i += 1
+
+        return ans
