@@ -448,3 +448,14 @@ class Solution:
                 s_lst.append(i)
 
         return s_lst == s_lst[::-1]
+
+
+# 771. Jewels and Stones
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        d = dict.fromkeys(jewels, 1)
+        count = 0
+        for s in stones:
+            if d.get(s):
+                count += 1
+        return count
