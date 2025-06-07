@@ -459,3 +459,13 @@ class Solution:
             if d.get(s):
                 count += 1
         return count
+
+
+# 268. Missing Number
+class Solution:
+    def missingNumber(self, nums: list[int]) -> int:
+        d = dict.fromkeys(nums, 1)
+        n = len(nums)
+        for i in range(0, n+1):
+            if i not in d:
+                return i
