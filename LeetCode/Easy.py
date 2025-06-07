@@ -466,6 +466,22 @@ class Solution:
     def missingNumber(self, nums: list[int]) -> int:
         d = dict.fromkeys(nums, 1)
         n = len(nums)
-        for i in range(0, n+1):
+        for i in range(0, n + 1):
             if i not in d:
                 return i
+
+
+# 392. Is Subsequence
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        if len(s) < 1:
+            return True
+
+        len_s = len(s) - 1
+        i = 0
+        for j in range(len(t)):
+            if t[j] == s[i]:
+                if i == len_s:
+                    return True
+                i += 1
+        return False
