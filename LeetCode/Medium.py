@@ -154,3 +154,14 @@ class Solution:
 
         new_matrix.sort()
         return new_matrix[k - 1]
+
+
+# 167. Two Sum II - Input Array Is Sorted
+class Solution:
+    def twoSum(self, numbers: list[int], target: int) -> list[int]:
+        d = {}
+        for i in range(len(numbers)):
+            if target - numbers[i] in d.keys():
+                return [d[target - numbers[i]] + 1, i + 1]
+
+            d[numbers[i]] = i
