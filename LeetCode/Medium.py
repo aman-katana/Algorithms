@@ -165,3 +165,29 @@ class Solution:
                 return [d[target - numbers[i]] + 1, i + 1]
 
             d[numbers[i]] = i
+
+
+# 443. String Compression
+class Solution:
+    def compress(self, chars: list[str]) -> int:
+        ans = 0
+        i = 0
+        l = 0
+        while l < len(chars):
+            item = chars[l]
+            count = 0
+            for r in range(l, len(chars)):
+                if chars[r] != item:
+                    break
+                l += 1
+                count += 1
+
+            ans += 1
+            chars[i] = item
+            i += 1
+            if count > 1:
+                for d in str(count):
+                    chars[i] = d
+                    i += 1
+                    ans += 1
+        return ans
