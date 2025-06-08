@@ -504,7 +504,6 @@ class Solution:
         return k
 
 
-
 # 1588. Sum of All Odd Length Subarrays
 class Solution:
     def sumOddLengthSubarrays(self, arr: list[int]) -> int:
@@ -522,8 +521,31 @@ class Solution:
                 if l - 1 < 0:
                     ans += prefix[r]
                 else:
-                    ans += prefix[r] - prefix[l-1]
+                    ans += prefix[r] - prefix[l - 1]
                 l += 1
                 r += 1
 
         return ans
+
+
+# 2485. Find the Pivot Integer
+class Solution:
+    def pivotInteger(self, n: int) -> int:
+        prefix = [0] * n
+        prefix[0] = 1
+
+        for i in range(1, n):
+            prefix[i] = prefix[i - 1] + i + 1
+
+        for i in range(n):
+            left = 0
+            right = 0
+            if i - 1 >= 0:
+                left = prefix[i - 1]
+            if i + 1 < n:
+                right = prefix[-1] - prefix[i]
+
+            if left == right:
+                return i + 1
+
+        return -1
