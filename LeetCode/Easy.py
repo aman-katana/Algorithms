@@ -502,3 +502,28 @@ class Solution:
 
         nums = nums[:k]
         return k
+
+
+
+# 1588. Sum of All Odd Length Subarrays
+class Solution:
+    def sumOddLengthSubarrays(self, arr: list[int]) -> int:
+        prefix = [0] * len(arr)
+        prefix[0] = arr[0]
+
+        for i in range(1, len(arr)):
+            prefix[i] = arr[i] + prefix[i - 1]
+
+        ans = 0
+        for i in range(1, len(arr) + 1, 2):
+            l = 0
+            r = i - 1
+            for j in range(r, len(arr)):
+                if l - 1 < 0:
+                    ans += prefix[r]
+                else:
+                    ans += prefix[r] - prefix[l-1]
+                l += 1
+                r += 1
+
+        return ans
