@@ -485,3 +485,20 @@ class Solution:
                     return True
                 i += 1
         return False
+
+
+# 26. Remove Duplicates from Sorted Array
+class Solution:
+    def removeDuplicates(self, nums: list[int]) -> int:
+        cur = nums[0]
+        ind = 1
+        k = 1
+        for i in range(len(nums)):
+            if nums[i] > cur:
+                nums[ind] = nums[i]
+                cur = nums[i]
+                ind += 1
+                k += 1
+
+        nums = nums[:k]
+        return k
